@@ -3,24 +3,24 @@
 
 //use of pointers like arrays with dynamic memory management
 
-int * combine(int *p1, int *p2, int n1, int n2) {
+int * combine(int *p1, int *p2, int n1, int n2) {  //to combine pointers into a single array
     int *p3= (int * ) malloc( (n1*n2)*sizeof(int));
     int *p = p3;
     int i;
 
-    for (i=0;i<n1;i++) {
+    for (i=0;i<n1;i++) { //copy
         *p3 = *p1;
         p3++;
         p1++;
     }
 
-    for (i=0;i<n2;i++) {
+    for (i=0;i<n2;i++) { //copy
         *p3 = *p2;
         p3++;
         p2++;
     }
 
-    *p3= '\0';
+    *p3= '\0'; //terminating character
     printf("Combine operating is done \n");
     return p;
 }
@@ -30,7 +30,7 @@ int main() {
     int *p1 , *p2 , *p3;
     int n1 , n2;
 
-    printf("Address of the first memory region : "); scanf("%d",&n1);
+    printf("Address of the first memory region : "); scanf("%d",&n1); //array sizes
     printf("Address of the second memory region : "); scanf("%d",&n2);
 
     p1= (int * ) malloc(n1 * sizeof(int));
@@ -50,7 +50,7 @@ int main() {
     p3= combine(p1,p2,n1,n2);
     int total = 0;
 
-    while (*p3 != '\0') {
+    while (*p3 != '\0') { //until null
         total += *p3;
         printf("%d", *p3);
         p3++;
